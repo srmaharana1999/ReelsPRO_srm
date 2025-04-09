@@ -21,7 +21,7 @@ export async function connectToDB() {
     if(!cached.promise){
         const opts = {
             bufferCommands : true,
-            maxPoolSize:10//How many connection are made to mongoDB at a time
+            maxPoolSize:2//How many connection are made to mongoDB at a time
         }
         cached.promise = mongoose
                             .connect(MONGODB_URI,opts)
