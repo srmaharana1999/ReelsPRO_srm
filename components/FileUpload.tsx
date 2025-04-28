@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { IKUpload } from "imagekitio-next";
 import { Loader2 } from "lucide-react";
 import { IKUploadResponse } from "imagekitio-next/dist/types/components/IKUpload/props";
@@ -15,7 +15,7 @@ export default function FileUpload({
   onProgress,
   fileType = "image",
 }: FileUploadProps) {
-  // const ikUploadRefTest = useRef<HTMLInputElement | null>(null);
+  const ikUploadRefTest = useRef<HTMLInputElement | null>(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

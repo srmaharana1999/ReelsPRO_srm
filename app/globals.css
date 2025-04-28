@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  theme: dark, dim;
+}
 
 :root {
   --background: #ffffff;
@@ -23,4 +26,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+progress::-webkit-progress-value {
+  background-color: #00c;
 }
