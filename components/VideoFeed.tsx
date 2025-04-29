@@ -6,7 +6,7 @@ interface videoFeedProps {
 }
 export default function VideoFeed(props: videoFeedProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid max-sm:grid-cols-1 max-md:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
       {props.videos.length > 0 ? (
         props.videos.map((video) => (
           <div key={video._id?.toString()}>

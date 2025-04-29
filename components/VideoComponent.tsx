@@ -6,17 +6,18 @@ interface VideoComponentProps {
 
 export default function VideoComponent(props: VideoComponentProps) {
   return (
-    <div className="flex flex-col gap-2 w-fit mx-auto bg-neutral-500 border-2 rounded-b-2xl p-1 shadow-lg shadow-gray-400 hover:scale-105 transition-all duration-500 min-sm:my-3 ">
+    <div className="flex flex-col gap-2 max-w-xs w-full mx-auto rounded-b-2xl p-1 min-sm:my-3 shadow-sm shadow-gray-400 hover:shadow-lg hover:shadow-gray-500 transition-shadow duration-300">
       <div className="">
         <Video
           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URLENDPOINT}
           src={props.video.videoUrl}
           controls
-          width={240}
-          height={480}
+          width={"100%"}
+          height={"100%"}
+          transformation={[{ width: "100", height: "150" }]}
         />
       </div>
-      <div className=" text-white">
+      <div className=" text-white px-4">
         <h1 className="text-2xl">{props.video.title}</h1>
         <p className="text-lg">{props.video.description}</p>
         <p className="text-xs my-2">

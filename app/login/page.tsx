@@ -29,8 +29,9 @@ function Register() {
   };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-sm mx-auto p-5 shadow-neutral-500">
-      <form className="card-body space-y-3" onSubmit={handleSubmit}>
+    <div className="card w-96 bg-base-100 shadow-md mx-auto p-5 shadow-neutral-500 ">
+      <h1 className="text-2xl text-center">Sign In</h1>
+      <form className="card-body space-y-5" onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
@@ -49,8 +50,8 @@ function Register() {
             required
           />
         </div>
-        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
-          Login
+        <button className="btn btn-soft btn-success w-1/2 mx-auto">
+          Sign In
         </button>
       </form>
       {error && (

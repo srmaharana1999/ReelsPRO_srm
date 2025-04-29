@@ -6,7 +6,7 @@ import React from "react";
 
 function Header() {
   const { data: session } = useSession();
-
+  console.log(session);
   const handleSignout = async () => {
     try {
       await signOut();
@@ -39,12 +39,12 @@ function Header() {
             >
               <li>
                 <a className="justify-between">
-                  Profile
+                  {session.user.email?.slice(0, session.user.email.length - 10)}
                   <span className="badge">New</span>
                 </a>
               </li>
               <li>
-                <Link href="/upload">Upload</Link>
+                <Link href="/upload">Upload videos</Link>
               </li>
               <li className="my-2">
                 <button
@@ -59,13 +59,13 @@ function Header() {
         ) : (
           <>
             <Link className="btn btn-sm btn-success btn-outline" href="/login">
-              Login
+              Sign In
             </Link>
             <Link
               className="btn btn-sm btn-secondary btn-outline"
               href="/register"
             >
-              Register
+              Sign Up
             </Link>
           </>
         )}
