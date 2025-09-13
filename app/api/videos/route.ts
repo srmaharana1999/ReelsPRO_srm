@@ -8,7 +8,8 @@ export async function GET() {
     try {
         await connectToDB();
         const videos = await Video.find({}).sort({ createdAt: -1 }).lean();
-
+        const session = await getServerSession(authOptions);
+        console.log(session);
         if (videos.length === 0 || !videos) {
             return NextResponse.json([], { status: 400 });
         }
@@ -23,6 +24,7 @@ export async function GET() {
 export async function POST(request:NextRequest) {
     try{
         const session = await getServerSession(authOptions);
+        console.log(session);
         if(!session){
             return NextResponse.json({error:"Unautorized"},{status:400})
         }

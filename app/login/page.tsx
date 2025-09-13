@@ -29,7 +29,7 @@ function Register() {
   };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-md mx-auto p-5 shadow-neutral-500 ">
+    <div className="card w-96 drop-shadow-md shadow-md shadow-white/10 drop-shadow-white/10 mx-auto p-5">
       <h1 className="text-2xl text-center">Sign In</h1>
       <form className="card-body space-y-5" onSubmit={handleSubmit}>
         <div>
@@ -50,7 +50,7 @@ function Register() {
             required
           />
         </div>
-        <button className="btn btn-soft btn-success w-1/2 mx-auto">
+        <button className="btn btn-soft btn-success w-1/2 mx-auto ">
           Sign In
         </button>
       </form>

@@ -12,6 +12,8 @@ export default function VideoComponent(props: VideoComponentProps) {
           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URLENDPOINT}
           src={props.video.videoUrl}
           controls
+          controlsList="nodownload noremoteplayback"
+          disablePictureInPicture
           width={"100%"}
           height={"100%"}
           transformation={[{ width: "100", height: "150" }]}

@@ -25,4 +25,4 @@ userSchema.pre("save",async function(next){
 // models - An array containing all models associated with this Mongoose instance.
 const User = models?.User || model<IUser>("User",userSchema);
 
-export default User;
+export default User; 

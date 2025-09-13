@@ -15,7 +15,7 @@ function Header() {
     }
   };
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4">
+    <div className="sticky top-0 left-0 navbar bg-base-100 shadow-sm px-4 h-18">
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost text-xl">
           ReelsPro
