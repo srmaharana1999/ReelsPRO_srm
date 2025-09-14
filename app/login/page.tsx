@@ -28,7 +28,7 @@ function Register() {
   };
 
   return (
-    <div className="card w-96 drop-shadow-md shadow-md shadow-white/10 drop-shadow-white/10 mx-auto p-5">
+    <div className=" max-w-sm  w-11/12 md:w-full card drop-shadow-md shadow-md shadow-white/10 drop-shadow-white/10 mx-auto p-5">
       <h1 className="text-2xl text-center">Sign In</h1>
       <form className="card-body space-y-5" onSubmit={handleSubmit}>
         <div>

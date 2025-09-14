@@ -15,7 +15,7 @@ function Header() {
     }
   };
   return (
-    <div className="sticky top-0 left-0 navbar bg-base-100 shadow-sm px-4 h-18">
+    <div className="sticky top-0 left-0 z-1000 navbar bg-base-100 shadow-sm shadow-white/10 px-4 h-18">
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost text-xl">
           ReelsPro
@@ -39,7 +39,10 @@ function Header() {
             >
               <li>
                 <a className="justify-between">
-                  {session.user.email?.slice(0, session.user.email.length - 10)}
+                  {session.user.email?.slice(
+                    0,
+                    session.user.email.indexOf("@")
+                  )}
                   <span className="badge">New</span>
                 </a>
               </li>
