@@ -17,7 +17,7 @@ function Register() {
     const result = await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      callbackUrl: "/",
     });
     if (result?.error) {
       setError(result.error);
