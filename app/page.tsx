@@ -7,24 +7,40 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [videos, setVideos] = useState<IVideo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true; // To avoid state updates if component unmounts during fetch
+
     const fetchVideos = async () => {
       try {
+        setLoading(true);
         const data = await apiClient.getVideos();
-        console.log(data);
-        setVideos(data);
+        if (isMounted) {
+          setVideos(data);
+          setError(null);
+        }
       } catch (error) {
-        console.log("Error fetching videos: ", error);
+        if (isMounted) {
+          setError("Error fetching videos");
+          console.error("Error fetching videos: ", error);
+        }
+      } finally {
+        if (isMounted) setLoading(false);
       }
     };
 
     fetchVideos();
+
+    return () => {
+      isMounted = false; // Cleanup flag on unmount
+    };
   }, []);
-  console.log(videos[0]);
+
   return (
-    <div className="">
-      <VideoFeed videos={videos} />
+    <div>
+      <VideoFeed videos={videos} loading={loading} error={error} />
     </div>
   );
 }

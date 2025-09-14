@@ -6,7 +6,7 @@ import React from "react";
 
 function Header() {
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
   const handleSignout = async () => {
     try {
       await signOut();

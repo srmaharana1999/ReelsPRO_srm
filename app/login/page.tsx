@@ -19,7 +19,6 @@ function Register() {
       password,
       redirect: false,
     });
-
     if (result?.error) {
       setError(result.error);
     } else {

@@ -21,7 +21,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       const { signature, expire, token } = data;
       return { signature, expire, token };
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw new Error(`ImageKit authentication failed`);
     }
   };

@@ -18,7 +18,6 @@ const VideoUpload = (props: UploadProps) => {
   const [progress, setProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const abortController = new AbortController();
-
   const authenticator = async () => {
     try {
       const response = await fetch("/api/imagekit-auth");
@@ -53,7 +52,7 @@ const VideoUpload = (props: UploadProps) => {
     try {
       authParams = await authenticator();
     } catch (authError) {
-      console.log("Failed to authenticate for upload: ", authError);
+      console.error("Failed to authenticate for upload: ", authError);
       return;
     }
 
@@ -73,7 +72,7 @@ const VideoUpload = (props: UploadProps) => {
         },
         abortSignal: abortController.signal,
       });
-      console.log("Upload Response: ", uploadResponse);
+      // console.log("Upload Response: ", uploadResponse);
       props.onSuccess(uploadResponse);
     } catch (error) {
       if (error instanceof ImageKitAbortError) {
