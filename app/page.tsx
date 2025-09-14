@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [videos, setVideos] = useState<IVideo[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     let isMounted = true; // To avoid state updates if component unmounts during fetch
@@ -19,7 +19,7 @@ export default function Home() {
         const data = await apiClient.getVideos();
         if (isMounted) {
           setVideos(data);
-          setError(null);
+          setError("");
         }
       } catch (error) {
         if (isMounted) {
